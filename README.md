@@ -22,7 +22,8 @@ This project is a CMS-style blog site similiar to a Wordpress site, where develo
 ## Screenshot
 
 Here is a screenshot of main page:
-![Tech-blog screenshot](assets/images/tech-blog1.jpg)
+![Tech-blog screenshot]("./assets/images/tech-blog1.jpg")
+
 
 ## Contributing
 
