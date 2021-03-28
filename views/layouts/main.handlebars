@@ -49,12 +49,14 @@
             idleSecondsCounter = 0;
         };
 
-        window.setInterval(CheckIdleTime, 1000);
+        var theInterval = window.setInterval(CheckIdleTime, 1000);
 
         function CheckIdleTime() {
             if ("{{loggedIn}}" == false) return;
             idleSecondsCounter++;
+            
             if (idleSecondsCounter >= idleSecondsLimit) {
+                window.clearInterval(theInterval);
                 var myMessage = `For your security, you are being logged out after ${idleSecondsLimit} seconds of inactivity.`;
                 logout();
                 alert(myMessage);
