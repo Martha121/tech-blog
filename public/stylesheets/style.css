@@ -1,6 +1,6 @@
 :root {
-    --primary: #ccdad1;
-    --secondary: #dce9d5;
+    --primary: #dbf6cd;
+    --secondary: #def5d1;
     --tertiary: #788585;
     --light-dark: #a1a0a1;
     --dark: #201110;
@@ -71,7 +71,7 @@ p {
 }
 
 .btn:hover {
-    color: var(--primary);
+    color: white;
     background-color: var(--tertiary);
     transform: translate(0, 0);
     box-shadow: 2px 2px var(--dark);

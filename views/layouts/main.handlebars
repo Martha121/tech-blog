@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVC Tech Blog</title>
+    <title>Tech Blog</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -24,6 +24,7 @@
             </div>
 
             <h1 class="app-title"><i class="fab "></i>The Tech Blog</h1>
+            <h4 id="idle-msg"></h4>
         </header>
 
         <main>
@@ -34,6 +35,32 @@
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
+    <script>
+        var idleSecondsLimit = 10; //seconds
+        var idleSecondsCounter = 0;
+
+        document.onclick = function () {
+            idleSecondsCounter = 0;
+        };
+        document.onmousemove = function () {
+            idleSecondsCounter = 0;
+        };
+        document.onkeypress = function () {
+            idleSecondsCounter = 0;
+        };
+
+        window.setInterval(CheckIdleTime, 1000);
+
+        function CheckIdleTime() {
+            if ("{{loggedIn}}" == false) return;
+            idleSecondsCounter++;
+            if (idleSecondsCounter >= idleSecondsLimit) {
+                var myMessage = `For your security, you are being logged out after ${idleSecondsLimit} seconds of inactivity.`;
+                logout();
+                alert(myMessage);
+            }
+        }
+    </script>
 
 </body>
 
